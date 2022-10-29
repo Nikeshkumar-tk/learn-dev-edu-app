@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Combo&family=Inter+Tight:wght@900&family=Kanit:wght@900&family=Lato:wght@300&family=Poppins:wght@200&display=swap');
+
+.nav-wrap {
+    height: 80px;
+    width: 100%;
+    padding: 0px 10px;
+    font-family: "Lato";
+    color: #fff;
+    background-color: #06202A;
+    position: fixed;
+    z-index: 100;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    ;
+}
+
+.container {
+    display: flex;
+    white-space: nowrap;
+    height: 75px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container h3 {
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.nav-ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-ul li {
+    cursor: pointer;
+}
+
+.right-wrap {
+    height: 100%;
+    width: 70px;
+    cursor: pointer;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.mobile-wrap {
+    position: fixed;
+    height: 100vh;
+    background-color: rgba(51, 51, 51, 0.9);
+    width: 200px;
+    top: 0;
+    right: -200px;
+    transition: all 0.3s;
+}
+
+.handburger-wrap {
+    height: 20px;
+    width: 30px;
+    right: 20px;
+    top: 38px;
+    position: fixed;
+    z-index: 1;
+
+}
+
+.icon {
+    height: 20px;
+    width: 30px;
+}
+
+
+.bar {
+
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transition: all 0.5s;
+}
+
+.bar-2 {
+    transform: translateY(5px);
+}
+
+.bar-3 {
+    transform: translateY(10px);
+
+}
+
+.active {
+    transform: rotate(90deg);
+}
+
+.active .bar-2 {
+    display: none;
+
+
+}
+
+.active .bar-1 {
+
+    transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.active .bar-3 {
+    transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
+.show-mobile {
+    transform: translateX(-200px);
+}
+
+
+
+@media(max-width:570px) {
+
+    .nav-ul {
+        display: none;
+    }
+
+
+
+}
+
+@media(min-width:570px) {
+    .mobile-wrap {
+        display: none;
+    }
+
+    .handburger-wrap {
+        display: none;
+    }
+
+    .icon-wrap {
+        width: 35px;
+
+    }
+}

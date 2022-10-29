@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Combo&family=Inter+Tight:wght@900&family=Kanit:wght@900&family=Lato:wght@300&family=Poppins:wght@200&display=swap');
+
+.card-container {
+    height: 100vh;
+    width: 100%;
+    padding-top: 100px;
+
+}
+
+.card-container h2 {
+    text-align: center;
+    font-family: Lato;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.card-wrap {
+    height: 250px;
+    width: 300px;
+    border-radius: 10px;
+    position: relative;
+
+}
+
+.card-body {
+    display: grid;
+    margin-top: 100px;
+    grid-template-columns: repeat(4, 0.3fr);
+    place-items: center;
+}
+
+.imageRound {
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.card {
+    position: relative;
+}
+
+.card span {
+    position: absolute;
+    left: 40%;
+    bottom: 10px;
+    font-family: Lato;
+    font-weight: 900;
+
+}
+.learn-btn{
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.learn-btn:hover{
+    color: blue;
+}
+.rightArrow{
+height: 20px;
+width: 20px;
+}
+
+@media(max-width:767px) {
+
+.card-body{
+    grid-template-columns: 1fr;
+}
+
+}
