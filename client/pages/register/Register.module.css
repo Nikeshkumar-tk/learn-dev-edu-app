@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Combo&family=Inter+Tight:wght@900&family=Kanit:wght@900&family=Lato:wght@300&family=Poppins:wght@200&family=Shalimar&display=swap');
+
+.register-wrap {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    background-color: #53488d;
+}
+
+.register-inner {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    justify-content: center;
+    width: 300px;
+    gap: 20px;
+    align-items: center;
+}
+
+.register-inner form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 300px;
+    box-shadow: 0 3px 10px rgba(3, 3, 3, 0.2);
+    border-radius: 10px;
+    background-color: #ffff;
+
+
+}
+
+.register-inner form input {
+    height: 35px;
+    width: 200px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #333;
+    background-color: transparent;
+
+}
+
+.register-inner form input::placeholder {
+    font-size: 1rem;
+}
+
+.register-btn {
+    padding: 10px 50px;
+    border: none;
+    background-color: #53488d;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+.caption {
+    display: inline;
+    font-family: Shalimar;
+    font-size: 3rem;
+    color: #ffff;
+    font-weight: bolder;
+}

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const Login = () => {
 
-  const heading = ["L", "e", "a", "r", "n", "  ", "D", "e", "v"]
+ 
 
   return (
     <div className={styles["login-wrap"]}>
