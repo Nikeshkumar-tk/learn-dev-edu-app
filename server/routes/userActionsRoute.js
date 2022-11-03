@@ -4,8 +4,6 @@ const { createUserActions,getUSerActions } = require('../controllers/userActionC
 const { protect } = require('../middleWares/authMiddleware')
 
 
-
-
 router.route("/create").post(protect,createUserActions)
 router.get("/getactions",protect,getUSerActions)
 

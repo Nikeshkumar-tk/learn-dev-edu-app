@@ -4,6 +4,7 @@ const connectDb = require('./configs/db')
 const mongoose = require('mongoose')
 const userRoute = require('./routes/userRoutes')
 const userActioRoute = require('./routes/userActionsRoute')
+const courseCategoryRoute = require('./routes/CourseDataRoutes')
 
 
 //PORT
@@ -19,6 +20,7 @@ app.use(express.json())
 
 app.use("/", userRoute)
 app.use("/actions", userActioRoute)
+app.use("/course", courseCategoryRoute)
 
 
 
