@@ -4,7 +4,8 @@ const asyncHandler = require('express-async-handler')
 
 //@desc Creating a new user
 //@method POST
-//@protected TRUE
+//@acess protected
+//@route /actions/create
 
 const createUserActions = asyncHandler(async (req, res) => {
 
@@ -16,7 +17,10 @@ const createUserActions = asyncHandler(async (req, res) => {
     return res.status(200).json({ message: "Action sucessfully added", user: req.user })
 })
 
-//Getting all user actions
+//@desc Getting all user actions
+//@method Get
+//@route /actions/getactions
+//@acess protected, User
 
 const getUSerActions = asyncHandler(async (req, res) => {
 

@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler')
 
 
 //@desc creating new url
-//@route 
+//@route  /url
 //@acess Protected,Admin only
 //@method POST
 const addUrl = asyncHandler(async (req, res) => {
@@ -35,6 +35,7 @@ const addUrl = asyncHandler(async (req, res) => {
 //@desc Getting all urls
 //@method Get
 //@acess Private,Admin only
+//@route /url
 const getUrls = asyncHandler(async (req, res) => {
 
 

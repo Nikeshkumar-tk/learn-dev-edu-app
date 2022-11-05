@@ -6,6 +6,7 @@ const asyncHandler = require('express-async-handler')
 //@route protected
 //@acess user only
 //@method GET
+//@route /course/:category
 
 
 const getCategoryData = asyncHandler(async (req, res) => {
@@ -28,6 +29,7 @@ const getCategoryData = asyncHandler(async (req, res) => {
 //@acess Admin only
 //@route protected
 //@method POST
+//@route /course/create
 
 const addCategoryData = asyncHandler(async (req, res) => {
 
@@ -35,8 +37,8 @@ const addCategoryData = asyncHandler(async (req, res) => {
 
     const categoryObj = {
         title: title,
-        blog:blog
-       
+        blog: blog
+
     }
 
     const course = await Category.create(categoryObj)
@@ -46,10 +48,29 @@ const addCategoryData = asyncHandler(async (req, res) => {
 
 })
 
-//@desc adding courses
-//@acess Admin only
-//@method PUT
+//@desc Updating the blog
+//Method PUT
+//@acess private,admin only
+//@route /course/updateblog
+
+const updateBlog = asyncHandler(async (req, res) => {
+    const { blog, courseId } = req.body
+    try {
+        const blogUpdatedCourse = await Category.findByIdAndUpdate({ _id: courseId },
+            {
+                blog: blog
+            }
+
+        )
+        if (!blogUpdatedCourse) return res.status(404).json({ mesage: "Unable to update the blog" })
+        return res.status(200).json({ message: "Blog updated sucessfully" })
+    } catch (error) {
+        console.log(error)
+    }
+
+})
 
 
 
-module.exports = { addCategoryData, getCategoryData }
+
+module.exports = { addCategoryData, getCategoryData, updateBlog }
