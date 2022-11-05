@@ -1,5 +1,6 @@
 const Category = require('../models/CourseCategory')
 const asyncHandler = require('express-async-handler')
+const User = require('../models/User')
 
 
 //@desc Getting category data
@@ -70,7 +71,36 @@ const updateBlog = asyncHandler(async (req, res) => {
 
 })
 
+//@desc adding courses to the user
+//@method PUT
+//@acess protected
+
+const addCourseToUser = asyncHandler(async (req, res) => {
+    const { courseId } = req.body
+
+    if (!courseId) return res.status(404).json({ message: "Please provide a courseId" })
+
+    try {
+        const duplicateCourse = await User.findById(req.user._id)
+
+        if (duplicateCourse.courses.includes(courseId)) return res.status(404).json({ message: "Given course id already exists" })
+
+        const user = await User.findByIdAndUpdate({ _id: req.user._id }, {
+            "$push": { "courses": courseId }
+        },{
+            new:true
+        })
+
+        if (!user) return res.status(404).json({ message: "Unable to add course" })
+
+        return res.status(200).json(user)
+
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 
 
-module.exports = { addCategoryData, getCategoryData, updateBlog }
+
+module.exports = { addCategoryData, getCategoryData, updateBlog, addCourseToUser }

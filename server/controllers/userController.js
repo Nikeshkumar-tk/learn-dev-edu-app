@@ -72,9 +72,6 @@ const userLogin = asyncHandler(async (req, res) => {
         email: foundEmail.email,
         acessToken: signUserId(foundEmail._id)
     })
-
-
-
 })
 
 module.exports = { registerUser, userLogin }
