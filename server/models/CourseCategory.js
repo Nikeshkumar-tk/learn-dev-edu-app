@@ -5,12 +5,12 @@ const mongoose = require('mongoose')
 const CourseSchema = mongoose.Schema({
     title: {
         type: String,
-        require: true
+        required: true
     },
-    urls:{
-        type:[
-            String
-        ]
-    }
+    blog:{
+        type:String,
+
+    },      
+    
 })
 module.exports = mongoose.model("Category", CourseSchema)

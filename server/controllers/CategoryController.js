@@ -1,6 +1,7 @@
 const Category = require('../models/CourseCategory')
 const asyncHandler = require('express-async-handler')
 
+
 //@desc Getting category data
 //@route protected
 //@acess user only
@@ -30,11 +31,12 @@ const getCategoryData = asyncHandler(async (req, res) => {
 
 const addCategoryData = asyncHandler(async (req, res) => {
 
-    const { title, urls } = req.body
+    const { title, blog } = req.body
 
     const categoryObj = {
         title: title,
-        urls: urls
+        blog:blog
+       
     }
 
     const course = await Category.create(categoryObj)
@@ -43,4 +45,11 @@ const addCategoryData = asyncHandler(async (req, res) => {
     return res.status(200).json({ message: "Sucessfully added daata" })
 
 })
+
+//@desc adding courses
+//@acess Admin only
+//@method PUT
+
+
+
 module.exports = { addCategoryData, getCategoryData }
