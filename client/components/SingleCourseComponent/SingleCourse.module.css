@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Combo&family=Inter+Tight:wght@900&family=Kanit:wght@900&family=Lato:wght@300&family=Poppins:wght@200&display=swap');
+
+
+.page-wrap {
+    /* width: 100%; */
+    max-width: 100%;
+    padding: 40px 20px;
+    padding-top: 150px;
+    overflow: hidden;
+    /* background-color: red; */
+
+}
+
+.header {
+    display: grid;
+    width: 100%;
+    place-items: center;
+    height: 500px;
+    position: relative;
+    gap: 30px;
+    font-family: "Lato", "sans-serif";
+    overflow: hidden;
+
+
+}
+
+.imageRound {
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    font-family: Lato;
+    padding: 10px 20px;
+    overflow-x: hidden;
+
+
+}
+
+.blog h2 {
+    margin-bottom: 10px;
+}
+
+.blog p {
+    font-size: 1.2em;
+}
+
+.header::-webkit-scrollbar {
+    display: none;
+}
+
+.blog::-webkit-scrollbar {
+    display: none;
+}
+
+.page-wrap::-webkit-scrollbar {
+    display: none;
+}

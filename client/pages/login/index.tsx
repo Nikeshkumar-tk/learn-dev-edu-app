@@ -2,6 +2,10 @@ import styles from './Login.module.css'
 import { motion } from 'framer-motion'
 import axios from '../../axios/axios'
 import React, { useRef } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { loginStart, loginSucess, loginFailed } from '../../stateManagement/features/userSlice'
+import { useRouter } from 'next/router'
+
 
 
 interface UserData {
@@ -12,13 +16,15 @@ interface UserData {
 const Login = () => {
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
-
+  const dispatch = useDispatch()
+  const router = useRouter()
 
   //Login function
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-
-    const userObj:UserData = {
+    e.preventDefault()
+    dispatch(loginStart())
+    const userObj: UserData = {
       email: emailRef.current?.value,
       password: passwordRef.current?.value
     }
@@ -26,8 +32,18 @@ const Login = () => {
     try {
       const res = await axios.post("/login", userObj)
       console.log(res)
+      dispatch(loginSucess(res.data))
+      if (res.data) {
+        localStorage.setItem('edu-user', JSON.stringify(res.data))
+      }
+
+      res && router.replace("/")
+
     } catch (error) {
       console.log(error)
+
+      dispatch(loginFailed())
+
     }
 
   }
@@ -45,8 +61,8 @@ const Login = () => {
         </motion.div>
       }
       <form onSubmit={(e) => handleLogin(e)}>
-        <input type="email" placeholder='Enter You email' />
-        <input type="password" placeholder='Enter Your password' />
+        <input type="email" placeholder='Enter You email' ref={emailRef} />
+        <input type="password" placeholder='Enter Your password' ref={passwordRef} />
         <button className={styles.loginBtn} type="submit">Login</button>
         <span className={styles.signUpReference}>Don't have an acoount ? Singn up </span>
       </form>

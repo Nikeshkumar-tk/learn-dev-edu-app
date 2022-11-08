@@ -1,11 +1,33 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { User } from '../../icons'
 import styles from './Navbar.module.css'
+import { useAppSelector } from '../../stateManagement/configs/typeExports'
+import { Router, useRouter } from 'next/router'
 
-
+interface User {
+    message: string
+    username: string
+    email: string
+    acessToken: string
+}
 
 const Navbar = () => {
     const [mobileMenu, setMobileMenu] = useState<boolean>(false)
+    var user: User | any
+    const router = useRouter()
+    const [hydrated, setHydrated] = useState(false)
+
+    
+
+    user = useAppSelector(store => store.user.user)
+    useEffect(() => {
+        !user && router.replace('/login')
+        setHydrated(true)
+    })
+    if (!hydrated) {
+        return null
+    }
+
 
     return (
         <div className={styles["nav-wrap"]}>
@@ -24,6 +46,9 @@ const Navbar = () => {
 
                         <User />
                     </div>
+
+                    <h5 className={styles["user-name"]}>{user.username}</h5>
+
                     <div
                         className={`${styles["handburger-wrap"]} ${mobileMenu ? styles.active : ""}`}
                         onClick={() => { setMobileMenu(p => !p) }}
