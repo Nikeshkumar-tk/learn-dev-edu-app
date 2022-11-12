@@ -1,18 +1,24 @@
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import styles from './SingleCourse.module.css'
 
 
 const SingleCourseComponent = () => {
+  const [hydrated, setHydrated] = useState(false)
+
+  useEffect(() => {
+    setHydrated(true)
+  })
+  if(!hydrated) return null
   return (
     <div className={styles["page-wrap"]}>
       <div className={styles.header}>
         <h2>Start your MERN stack journey today ..</h2>
-        <Image src="https://firebasestorage.googleapis.com/v0/b/miniprojectprofile.appspot.com/o/Blog-Article-MERN-Stack.jpg?alt=media&token=aab78488-a502-4052-88fa-12c7088bdf7d"
+        <img src="https://firebasestorage.googleapis.com/v0/b/miniprojectprofile.appspot.com/o/Blog-Article-MERN-Stack.jpg?alt=media&token=aab78488-a502-4052-88fa-12c7088bdf7d"
 
          alt = "MERN stack"
-         sizes='100vh'
-         width={600}
-         height = {350}
+       
+        
          className={styles.imageRound}
          />
       </div>

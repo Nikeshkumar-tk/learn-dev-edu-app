@@ -27,6 +27,7 @@
 .imageRound {
     border-radius: 20px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    height: 350px;
 
 }
 
@@ -61,3 +62,12 @@
 .page-wrap::-webkit-scrollbar {
     display: none;
 }
+
+/* media queries */
+@media (max-width: 600px) {
+
+    .imageRound {
+        height: 200px;
+    }
+}
+
